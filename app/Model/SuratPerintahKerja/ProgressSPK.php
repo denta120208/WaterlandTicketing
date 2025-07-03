@@ -1,0 +1,61 @@
+<?php namespace App\Model\SuratPerintahKerja;
+
+use Illuminate\Database\Eloquent\Model;
+
+class ProgressSPK extends Model {
+
+    protected $table = 'SPK_SERTIFIKAT';
+   // protected $primaryKey = 'SPK_SERTIFIKAT_NOCHAR';
+    protected $primaryKey ='SPK_SERTIFIKAT_ID_INT';
+    public $timestamps = false;
+
+    protected $fillable =[
+        'SPK_SERTIFIKAT_ID_INT',
+        'SPK_SERTIFIKAT_NOCHAR',
+        'SPK_RSERTIFIKAT_NOCHAR',
+        'SPK_TRANS_NOCHAR',
+        'SPK_ROLES_INT',
+        'SPK_SERTIFIKAT_TRX_DATE',
+        'SPK_SERTIFIKAT_INV_DATE',
+        'MD_TERMIN_ID_INT',
+        'MD_TERMIN_PROGRESS_INT',
+        'MD_TERMIN_BAYAR_INT',
+        'TAX_SCHEME_ID_INT',
+        'SPK_SERTIFIKAT_PAYMENT',
+        'SPK_SERTIFIKAT_DPP',
+        'SPK_SERTFIKAT_SIGN1',
+        'SPK_SERTFIKAT_SIGN1_POSITION',
+        'SPK_SERTFIKAT_SIGN2',
+        'SPK_SERTFIKAT_SIGN2_POSITION',
+        'SPK_SERTFIKAT_SIGN3',
+        'SPK_SERTFIKAT_SIGN3_POSITION',
+        'SPK_SERTFIKAT_SIGN4',
+        'SPK_SERTFIKAT_SIGN4_POSITION',
+        'SPK_SERTFIKAT_SIGN5',
+        'SPK_SERTFIKAT_SIGN5_POSITION',
+        'SPK_SERTFIKAT_SIGN6',
+        'SPK_SERTFIKAT_SIGN6_POSITION',
+        'SPK_SERTIFIKAT_PRINT_INT',
+        'SPK_SERTIFIKAT_APPROVE_INT',
+        'SPK_SERTIFIKAT_REQUEST_BY',
+        'SPK_SERTIFIKAT_REQUEST_DTTIME',
+        'SPK_SERTIFIKAT_ONE_BY',
+        'SPK_SERTIFIKAT_SECOND_BY',
+        'SPK_SERTIFIKAT_THIRD_BY',
+        'SPK_SERTIFIKAT_ONE_DTTIME',
+        'SPK_SERTIFIKAT_SECOND_DTTIME',
+        'SPK_SERTIFIKAT_THIRD_DTTIME',
+        'SPK_SERTIFIKAT_PRINT_INT',
+        'PROJECT_NO_CHAR',
+        'SPK_SERTIFIKAT_DENDA_INT',
+        'SERTIFIKAT_KE',
+        'SPK_TRANS_PAYMENT',
+        'CR_DIVISI_INT',
+        'IS_LUMPSUM',
+        'SPK_SERTIFIKAT_DOC_TYPE',
+        'SPK_SERTIFIKAT_RETENSI_NUM',
+        'SPK_SERTIFIKAT_REFUND_DP',
+        'SPK_SERTIFIKAT_VO_TAMBAH',
+        'SPK_SERTIFIKAT_VO_KURANG'
+    ];
+}
