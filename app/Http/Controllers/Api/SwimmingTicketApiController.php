@@ -19,6 +19,7 @@ class SwimmingTicketApiController extends Controller
     public function checkTicket(Request $request)
     {
         $number_ticket = $request->input('number_ticket');
+        $scan_by = $request->input('scan_by');
 
         // Validasi format nomor tiket
         if (!$this->isValidTicketFormat($number_ticket)) {
@@ -33,11 +34,25 @@ class SwimmingTicketApiController extends Controller
             ->first();
 
         if ($data) {
+            // Update IS_SCAN menjadi 1 jika tiket ditemukan
+            DB::table('TRANS_TICKET_PURCHASE_DETAILS')
+                ->where('NUMBER_TICKET', $number_ticket)
+                ->update([
+                    'IS_SCAN' => 1,
+                    'SCAN_BY' => $scan_by,
+                    'SCAN_AT' => now(),
+                ]);
+
+            // Ambil data terbaru setelah update
+            $updatedData = DB::table('TRANS_TICKET_PURCHASE_DETAILS')
+                ->where('NUMBER_TICKET', $number_ticket)
+                ->first();
+
             return response()->json([
                 'status' => true,
-                'message' => 'Tiket ditemukan',
-                'scan_result' => $data->scan_result ?? null,
-                'data' => $data
+                'message' => 'Tiket ditemukan dan berhasil di scan',
+                'scan_result' => $updatedData->scan_result ?? null,
+                'data' => $updatedData
             ]);
         } else {
             return response()->json([
