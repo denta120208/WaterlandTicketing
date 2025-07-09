@@ -1442,4 +1442,4 @@ Route::get('/change_project/{id}','WaterGroupController@change_project')->name('
 Route::post('/api/check-ticket', 'Api\SwimmingTicketApiController@checkTicket');
 Route::post('/api/check-in', 'Api\SwimmingTicketApiController@checkIn');
 Route::post('/api/check-out', 'Api\SwimmingTicketApiController@checkOut');
-Route::post('/api/gate-check', 'Api\SwimmingTicketApiController@gateCheck');
+Route::get('/api/gate-check', 'Api\SwimmingTicketApiController@gateCheck');
